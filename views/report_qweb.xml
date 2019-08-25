@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+        <record id="view_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">DRS Company Custom Fields</field>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                    
+                        <field name="barcode" invisible="1"/>
+                        <field name="price_discount" invisible="1"/>
+                        <field name="import_discount" invisible="1"/>
+                         <field name="amount_discount" invisible="1"/>
+                </xpath>
+
+
+
+                <field name="amount_untaxed" position="after">
+                        <field name="discounts" invisible="1"/>
+                        <field name="precio_sin_descuento" invisible="1"/>
+                        <field name="amount_to_text" invisible="1" />
+                </field>
+            </field>
+        </record>
+</odoo>
+<!--position = after, before, inside, replace-->
+<!-- <xpath expr="//form/header/button[@name='payment_action_capture']" position="after">
+</xpath> -->
